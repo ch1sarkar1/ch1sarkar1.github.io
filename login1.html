@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+ 
+<script type = "text/javascript">
+
+
+
+var count = 2;
+function validate() {
+var un = document.myform.username.value;
+var pw = document.myform.pword.value;
+var cl = document.myform.pword.value;
+var valid = false;
+
+var unArray = ["chandramouli", "farogh", "pankaj", "launda x"];  // as many as you like - no comma after final entry
+var pwArray = ["007", "farogh", "pankaj", "launda x"];  // the corresponding passwords;
+var clArray = ["10", "10", "10", "10"];
+
+for (var i=0; i <unArray.length; i++) {
+if ((un == unArray[i]) && (pw == pwArray[i]&& (cl == clArray[i])) {
+valid = true;
+break;
+}
+}
+
+if (valid) {
+alert ("Login was successful");
+window.location ="loginnxt.html";
+return false;
+}
+
+var t = " tries";
+if (count == 1) {t = " try"}
+
+if (count >= 1) {
+alert ("Invalid username and/or password.  You have " + count + t + " left.");
+document.myform.username.value = "";
+document.myform.pword.value = "";
+setTimeout("document.myform.username.focus()", 25);
+setTimeout("document.myform.username.select()", 25);
+count --;
+}
+
+else {
+alert ("Still incorrect! You have no more tries left!");
+document.myform.username.value = "No more tries allowed!";
+document.myform.pword.value = "";
+document.myform.username.disabled = true;
+document.myform.pword.disabled = true;
+return false;
+}
+
+}
+
+</script>
+
+<meta charset="UTF-8">
+
+  
+<title>Log-in</title>
+
+  
+<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+
+    
+<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+
+
+</head>
+
+
+
+
+<body>
+
+  
+<div class="login-card">
+   <b> <h1>OH! Sorry U need to Log-in</h1></b><br>
+  <form name = "myform">
+    <input type="text" name="username" placeholder="Username"><input type="text" name="class" placeholder="Class">
+    
+<input type="password" name="pword" placeholder="Password">
+    
+<input type="button" value="Check In" name="Submit" onclick= "validate()">  
+</form>
+
+  <div class="login-help">
+    
+<a href="register.html">Register</a> • 
+<a href="#">Forgot Password</a>
+ 
+ </div>
+</div>
+
+<!-- <div id="error">
+<img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
+
+  
+<script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+
+
+</body>
+
+
+</html>
